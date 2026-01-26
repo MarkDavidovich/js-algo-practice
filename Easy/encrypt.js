@@ -30,8 +30,25 @@ Notes
 All inputs are strings, no uppercases and all output must be strings.
 */
 
-function encrypt( /*args*/ ) {
-  //your code
+function encrypt(str) {
+  const vowels = "aeiu";
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    let currentChar = str[i];
+    for (let j = 0; j < vowels.length; j++) {
+      if (currentChar === vowels[j]) {
+        currentChar = j;
+        break;
+      }
+      if (currentChar === "o") {
+        currentChar = 2;
+        break;
+      }
+    }
+    reversed += currentChar;
+  }
+  reversed += "aca";
+  return reversed;
 }
 
 exports.solution = encrypt;
