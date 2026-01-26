@@ -18,8 +18,21 @@ factorChain([2, 4, 6, 7, 12]) ➞ false
 factorChain([10, 1]) ➞ false
 */
 
-function factorChain( /*args*/ ) {
-  //your code
+function factorChain(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > nums[i + 1] && i !== nums.length - 1) {
+      return false;
+    }
+
+    //if the next array item divides without remainder its all good, otherwise return false;
+    if (nums[i + 1]) {
+      if (nums[i + 1] % nums[i] !== 0) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 }
 
 exports.solution = factorChain;
