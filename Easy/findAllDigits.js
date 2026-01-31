@@ -15,8 +15,23 @@ Notes
 The digits can be discovered in any order.
 */
 
-function findAllDigits( /*args*/ ) {
-  //your code
+function findAllDigits(nums) {
+  const NUM_LENGTH = 4;
+  const appearances = {};
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+    for (let j = 0; j < NUM_LENGTH; j++) {
+      const digit = num % 10;
+      if (!appearances[digit]) {
+        appearances[digit] = 1;
+      }
+      if (Object.keys(appearances).length === 10) {
+        return nums[i];
+      }
+      num = Math.floor(num / 10);
+    }
+  }
+  return "Missing digits!";
 }
 
 exports.solution = findAllDigits;
