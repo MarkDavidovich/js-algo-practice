@@ -11,8 +11,20 @@ Notes
 All test cases contain valid numbers.
 */
 
-function mod( /*args*/ ) {
-  //your code
+function mod(num1, num2) {
+  if (num1 < 0) {
+    num1 *= -1;
+  }
+
+  if (num2 < 0) {
+    num2 *= -1;
+  }
+
+  if (num1 % num2 !== 0) {
+    return num2 - num1;
+  }
+
+  return 0;
 }
 
 exports.solution = mod;
